@@ -1,82 +1,57 @@
 $(document).ready(function () {
 
-	// Score
-	var sw = 0;
-	var sl = 0;
+	// global variables declrared to not loose them when the scrip runs
 
-	var guess_value = Math.floor(Math.random() * 120);
-	var cred = (Math.floor(Math.random() * 12));
-	var cblue = Math.floor(Math.random() * 12);
-	var cyellow = Math.floor(Math.random() * 12);
-	var cgreen = Math.floor(Math.random() * 12);
+	// score of the game
+	 	wins = 0;
+		loss = 0;
 
-	var gems = [cgreen,cred,cblue,cyellow];
-	console.log[gems[0]];
+	//the computer picks a random number between 1 and 120 and prints it on the screen
+	guessValue = Math.floor(Math.random() * 120);
+	$('#gameValue').html(guessValue)
 
-	var total_score= 0;
+// the computer picks a random number for the gems
+	cred = (Math.floor(Math.random() * 12));
+	cblue = Math.floor(Math.random() * 12);
+	cyellow = Math.floor(Math.random() * 12);
+	cgreen = Math.floor(Math.random() * 12);
+
+	total_score= 0;
+	// all the variables are added into an array for easier calling
+	gems = [cblue,cred,cgreen,cyellow];
+
 		console.log("red value " + cred);
 		console.log("blue Value " + cblue);
 		console.log("green Value " + cgreen);
 		console.log("yellow Value " + cyellow);
 
-		console.log("computer guess "+guess_value);
+		console.log("computer guess "+guessValue);
 		console.log("total score "+total_score);
-		console.log(sw)
-		console.log(sl)
+		console.log(wins)
+		console.log(loss)
 
-			$('#blue').on("click",function(){
-		total_score=total_score+cblue;
-		console.log(total_score);
-		$("your_score").append(total_score);
+	// when the player clicks a gem they will add this value to the score 
+	$(".gems").click(gemSelect)
 
-			if (total_score==guess_value){
-				console.log("you win!!!");
-				} else if (total_score>guess_value){
-				console.log("LOSER!!");
-				};
 
-		});
-		$('#red').on("click",function(){
-		total_score=total_score+cred;
-		console.log(total_score);
-		$("your_score").append(total_score)
-		
-			if (total_score==guess_value){
-				console.log("you win!!!");
-				} else if(total_score>guess_value){
-				console.log("LOSER!!");
-			};
-		});
+	function gemSelect() {
+		valueAdded = ($(this).data('gem'));
+		valueAdded = parseInt(valueAdded);
+		valueAdded = gems[valueAdded]
+		console.log(valueAdded+valueAdded);
 
-		$('#green').on("click",function(){
-		console.log(cgreen)
-		total_score=total_score+cgreen;
-		console.log(total_score);
-		$("your_score").append(total_score)		
-		
-			if (total_score==guess_value){
-				console.log("you win!!!");
-		
-			} else if(total_score>guess_value){
-				console.log("LOSER!!");
-			};			
-		});
+		if (valueAdded ==guessValue) {
+			wins++;
+			alert("You won!");
+			clearEvent();
+		}
+		total_score = total_score+valueAdded;
+		$(your_score).html(total_score);
+	};
 
-		$('#yellow').on("click",function(){
-		total_score=total_score+cyellow;
-		console.log(total_score);
-		$("your_score").append(total_score)
 
-			if (total_score==guess_value){
-				console.log("you win!!!");
-				} else if (total_score>guess_value){
-				console.log("LOSER!!");
-			};
-			
-		});
-
-		$("#game_value").append(guess_value);
-		$("your_score").append(total_score);
-
-		
+	function clearEvent(){
+		total_score=0;
+		guessValue=Math.floor(Math.random() * 120);
+	}
 });
