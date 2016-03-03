@@ -6,15 +6,15 @@ $(document).ready(function () {
 	 	wins = 0;
 		loss = 0;
 
-	//the computer picks a random number between 1 and 120 and prints it on the screen
-	guessValue = Math.floor(Math.random() * (120-19+ 1) + 19);
+	//the computer picks a random number between 19 and 120 and prints it on the screen
+	guessValue = Math.floor((Math.random()*101)+19);
 	$('#gameValue').html(guessValue);
 
 // the computer picks a random number for the gems
-	cred = (Math.floor(Math.random() * 12));
-	cblue = Math.floor(Math.random() * 12);
-	cyellow = Math.floor(Math.random() * 12);
-	cgreen = Math.floor(Math.random() * 12);
+	cred = (Math.floor((Math.random() * 12)+1));
+	cblue = (Math.floor((Math.random() * 12)+1));
+	cyellow = (Math.floor((Math.random() * 12)+1));
+	cgreen = (Math.floor((Math.random() * 12)+1));
 	var valueAdded = 0;
 
 	totalScore= 0;
@@ -60,7 +60,7 @@ function CheckValue(){
 	function clearEvent(){
 		alert("New GAME");
 		totalScore=0;
-		guessValue=Math.floor(Math.random() * (120 - 19 + 1)) + 19);
+		guessValue=Math.floor((Math.random()*101)+19);
 		$('#gameValue').html(guessValue);
 		$('#your_score').html('0');
 	}
