@@ -21,16 +21,6 @@ $(document).ready(function () {
 	// all the variables are added into an array for easier calling
 	gems = [cblue,cred,cgreen,cyellow];
 
-		console.log("red value " + cred);
-		console.log("blue Value " + cblue);
-		console.log("green Value " + cgreen);
-		console.log("yellow Value " + cyellow);
-
-		console.log("computer guess "+guessValue);
-		console.log("total score "+totalScore);
-		console.log(wins)
-		console.log(loss)
-
 	// when the player clicks a gem they will add this value to the score 
 	$(".gems").click(CheckValue);
 
