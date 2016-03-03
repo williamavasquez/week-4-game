@@ -49,10 +49,10 @@ function CheckValue(){
 			loss++;
 			$("#loss").html("Losses: "+loss)
 			clearEvent();
-			} else if(totalScore==guessValue){
-				wins++;
-				$("#win").html("Win: "+wins);
-				clearEvent();
+	} else if(totalScore==guessValue){
+			wins++;
+			$("#win").html("Win: "+wins);
+			clearEvent();
 	};
 };
 
