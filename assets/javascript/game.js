@@ -22,13 +22,13 @@ $(document).ready(function () {
 	gems = [cblue,cred,cgreen,cyellow];
 
 	// when the player clicks a gem they will add this value to the score 
-	$(".gems").click(CheckValue);
+	$(".gems").on('click',CheckValue);
 
 function CheckValue(){
 // This grabs the value of the gem you picked
 	valueAdded = ($(this).data('gem'));
 	valueAdded = parseInt(valueAdded);
-	valueAdded = gems[valueAdded]
+	valueAdded = gems[valueAdded];
 
 // adds the variable and imputs it to your total score
 		totalScore = totalScore+valueAdded;
